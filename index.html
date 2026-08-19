@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>?</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="bg" id="bg">
+
+  <!-- Valentine card (tap to open) -->
+  <div class="card-wrap hidden" id="cardWrap">
+    <div class="card" id="card">
+      <div class="card-icon">💌</div>
+      <div class="card-label">tap to open</div>
+    </div>
+  </div>
+
+  <!-- Main valentine message (hidden until card is tapped) -->
+  <div class="content hidden" id="mainContent">
+    <div class="xp-window" id="xpWindow">
+      <div class="xp-titlebar">
+        <div class="xp-title">
+          <span class="xp-title-icon">💘</span>
+          <span>valentine.exe</span>
+        </div>
+        <div class="xp-controls">
+          <button class="xp-btn" id="xpMin" title="you can't minimize love">_</button>
+          <button class="xp-btn" id="xpMax" title="nice try">□</button>
+          <button class="xp-btn xp-close" id="xpClose" title="not happening">✕</button>
+        </div>
+      </div>
+      <div class="xp-body">
+        <div class="hello">hello</div>
+        <div class="question">will you be my valentine? 💕</div>
+        <div class="buttons">
+          <button id="yesBtn" onclick="sayYes()">Yes!</button>
+          <button id="noBtn">No</button>
+        </div>
+        <div class="result" id="result"></div>
+      </div>
+    </div>
+  </div>
+
+  <button id="playlistToggle" title="Choose a song">🎵</button>
+</div>
+
+<!-- Playlist popup -->
+<div id="playlistModal" class="modal">
+  <div class="modal-box">
+    <div class="modal-header">
+      <span>pick a song🎶</span>
+      <button id="closePlaylist">✕</button>
+    </div>
+    <div id="songList" class="song-list"></div>
+  </div>
+</div>
+
+<!-- Retro music player -->
+<div class="player" id="player">
+  <div class="player-titlebar">MUSIC PLAYER.EXE</div>
+  <div class="player-body">
+    <div class="player-track" id="nowPlaying">no track selected</div>
+    <div class="player-progress-row">
+      <span id="currentTime">0:00</span>
+      <input type="range" id="songProgress" min="0" max="100" value="0" step="0.1" aria-label="Song progress">
+      <span id="duration">0:00</span>
+    </div>
+    <div class="player-controls">
+      <button id="prevBtn" title="Previous">⏮</button>
+      <button id="playPauseBtn" title="Play / Pause">▶</button>
+      <button id="nextBtn" title="Next">⏭</button>
+      <button id="muteBtn" title="Mute">🔊</button>
+    </div>
+    <div class="player-volume-row">
+      <span>VOL</span>
+      <input type="range" id="playerVolume" min="0" max="100" value="30">
+    </div>
+  </div>
+</div>
+
+<audio id="bgMusic"></audio>
+
+<script src="script.js"></script>
+</body>
+</html>

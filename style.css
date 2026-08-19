@@ -1,0 +1,458 @@
+@font-face {
+  font-family: 'PixeloidSans';
+  src: url('PixeloidSans.ttf') format('truetype');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'PixeloidSans';
+  src: url('PixeloidSans-Bold.ttf') format('truetype');
+  font-weight: bold;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body, html {
+  height: 100%;
+  overflow: hidden;
+  font-family: 'PixeloidSans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.bg {
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(-45deg, #ff6b9d, #ff8fab, #c9184a, #ff477e);
+  background-size: 400% 400%;
+  animation: gradientShift 12s ease infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.heart {
+  position: absolute;
+  bottom: -50px;
+  color: rgba(255,255,255,0.85);
+  font-size: 24px;
+  animation: floatUp linear infinite;
+  user-select: none;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+}
+
+/* ---- Valentine card ---- */
+
+.card-wrap {
+  z-index: 10;
+}
+
+.card {
+  width: 170px;
+  height: 230px;
+  background: white;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+  transition: transform 0.25s ease;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.card:hover {
+  transform: scale(1.06) rotate(-2deg);
+}
+
+.card-icon {
+  font-size: 4.2rem;
+}
+
+.card-label {
+  margin-top: 12px;
+  color: #c9184a;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+}
+
+/* ---- Main content ---- */
+
+.content {
+  text-align: center;
+  z-index: 10;
+  opacity: 0;
+  animation: fadeIn 0.6s ease forwards;
+}
+
+/* ---- Windows XP-style window ---- */
+
+.xp-window {
+  width: min(90vw, 380px);
+  background: #ece9d8;
+  border-radius: 9px 9px 4px 4px;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.4), 0 0 0 1px #0831d9;
+  overflow: hidden;
+}
+
+.shake {
+  animation: xpShake 0.4s ease;
+}
+
+@keyframes xpShake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-6px); }
+  40% { transform: translateX(6px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+}
+
+.xp-titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 5px 5px 10px;
+  background: linear-gradient(180deg, #3d94f6 0%, #1c62e0 40%, #0a3fc4 55%, #1465e0 100%);
+  color: white;
+  font-weight: bold;
+  font-size: 0.85rem;
+  letter-spacing: 0.3px;
+}
+
+.xp-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.3);
+}
+
+.xp-title-icon {
+  font-size: 1rem;
+}
+
+.xp-controls {
+  display: flex;
+  gap: 3px;
+}
+
+.xp-btn {
+  width: 21px;
+  height: 19px;
+  padding: 0;
+  border-radius: 3px;
+  border: 1px solid rgba(255,255,255,0.6);
+  background: linear-gradient(180deg, #6fa8ff 0%, #2a6fe0 100%);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: bold;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.xp-btn:hover {
+  filter: brightness(1.15);
+}
+
+.xp-close {
+  background: linear-gradient(180deg, #ff8a8a 0%, #d33 100%);
+}
+
+.xp-body {
+  padding: 34px 22px 28px;
+  background: linear-gradient(180deg, #ffffff 0%, #fff0f4 100%);
+}
+
+.hello {
+  font-size: 1.4rem;
+  font-weight: 300;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+  color: #c9184a;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+}
+
+.question {
+  font-size: 1.7rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #7a0e30;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards 0.4s;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+.buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards 0.9s;
+}
+
+button {
+  font-family: inherit;
+  font-size: 1.1rem;
+  padding: 14px 32px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.2s ease;
+}
+
+#yesBtn {
+  background: linear-gradient(180deg, #ff8fab, #c9184a);
+  color: white;
+}
+
+#yesBtn:hover {
+  transform: scale(1.08);
+}
+
+#noBtn {
+  background: #fff0f4;
+  color: #c9184a;
+  border: 2px solid #c9184a;
+  position: relative;
+}
+
+.result {
+  margin-top: 24px;
+  font-size: 1.25rem;
+  color: #7a0e30;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.result.show {
+  opacity: 1;
+}
+
+/* ---- Heart burst effect ---- */
+
+.burst-heart {
+  position: fixed;
+  pointer-events: none;
+  font-size: 22px;
+  animation: burstOut 0.9s ease-out forwards;
+  z-index: 60;
+}
+
+@keyframes burstOut {
+  0% { transform: translate(0, 0) scale(0.6); opacity: 1; }
+  100% { transform: var(--burst-transform); opacity: 0; }
+}
+
+/* ---- Playlist toggle ---- */
+
+#playlistToggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  border: 2px solid white;
+  color: white;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+}
+
+/* ---- Playlist popup ---- */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+.modal-box {
+  background: #fff5f7;
+  width: min(90vw, 360px);
+  max-height: 70vh;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+}
+
+.modal-header {
+  background: #c9184a;
+  color: white;
+  padding: 14px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
+
+.modal-header button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 0;
+}
+
+.song-list {
+  overflow-y: auto;
+  padding: 8px;
+}
+
+.song-item {
+  width: 100%;
+  text-align: left;
+  background: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-bottom: 6px;
+  cursor: pointer;
+  color: #333;
+  font-size: 0.85rem;
+  transition: background 0.15s ease;
+}
+
+.song-item:hover {
+  background: #ffd6e0;
+}
+
+.song-item.active {
+  background: #ff477e;
+  color: white;
+}
+
+/* ---- Retro music player ---- */
+
+.player {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 230px;
+  background: #c0c0c0;
+  border: 2px solid #fff;
+  outline: 2px solid #333;
+  border-radius: 4px;
+  z-index: 20;
+  box-shadow: 4px 4px 0 rgba(0,0,0,0.4);
+}
+
+.player-titlebar {
+  background: #1a1a6c;
+  color: #fff;
+  font-size: 0.7rem;
+  padding: 6px 8px;
+  letter-spacing: 1px;
+}
+
+.player-body {
+  padding: 10px;
+}
+
+.player-track {
+  background: #001a00;
+  color: #4dff4d;
+  font-size: 0.68rem;
+  padding: 7px 8px;
+  border-radius: 2px;
+  margin-bottom: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.player-progress-row {
+  display: grid;
+  grid-template-columns: 34px 1fr 34px;
+  align-items: center;
+  gap: 6px;
+  margin: 8px 0 10px;
+  font-size: 0.58rem;
+  color: #333;
+  font-family: Arial, sans-serif;
+}
+
+#songProgress {
+  width: 100%;
+  height: 4px;
+  margin: 0;
+  cursor: pointer;
+  accent-color: #c9184a;
+}
+
+#currentTime {
+  text-align: right;
+}
+
+#duration {
+  text-align: left;
+}
+
+.player-controls {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.player-controls button {
+  flex: 1;
+  background: #e0e0e0;
+  border: 2px solid #888;
+  border-radius: 3px;
+  padding: 6px 0;
+  font-size: 0.8rem;
+  color: #222;
+}
+
+.player-controls button:active {
+  transform: translateY(1px);
+}
+
+.player-volume-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.65rem;
+  color: #333;
+}
+
+.player-volume-row input[type="range"] {
+  flex: 1;
+  accent-color: #c9184a;
+}
