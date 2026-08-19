@@ -63,16 +63,6 @@ You can experience the project here:
 
 ---
 
-## 📸 Preview
-
-> Add a screenshot of the website here.
-
-```md
-![Enamorados Preview](./preview.png)
-```
-
----
-
 ## ❤️ Made With Love
 
 Created by **Chiconatello**
