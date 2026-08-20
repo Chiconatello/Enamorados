@@ -149,6 +149,7 @@ const songs = [
   { title: "Can't Fight This Feeling", file: "Can't Fight This Feeling.mp3" },
   { title: "Crazy for You", file: "Crazy for You.mp3" },
   { title: "Cupid (Twin Version)", file: "Cupid (Twin Version).mp3" },
+  { title: "did i tell u that i miss u", file: "did i tell you that i miss u.mp3" },
   { title: "Die With A Smile", file: "Die With A Smile.mp3" },
   { title: "Don't Matter", file: "Don't Matter.mp3" },
   { title: "Dress", file: "Dress.mp3" },
