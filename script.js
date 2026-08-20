@@ -17,6 +17,13 @@ for (let i = 0; i < 25; i++) {
 // ---- Valentine card ----
 let cardOpened = false;
 let dodgeEnabled = false;
+let songPicked = false;
+let userName = '';
+
+function goToStep(stepId) {
+  document.querySelectorAll('.step').forEach((s) => s.classList.add('hidden'));
+  document.getElementById(stepId).classList.remove('hidden');
+}
 
 document.getElementById('card').addEventListener('click', () => {
   document.getElementById('cardWrap').classList.add('hidden');
@@ -39,9 +46,31 @@ document.getElementById('noBtn').addEventListener('pointerenter', () => {
 function sayYes() {
   const result = document.getElementById('result');
 
-  result.textContent = "Yay! 🎉 I knew you'd say yes!";
-  result.classList.add('show');
+  result.textContent = `Yay! I knew you'd say yes, ${userName}! 🎉`;
+
+  goToStep('stepResult');
 }
+
+function submitName() {
+  const input = document.getElementById('nameInput');
+  const val = input.value.trim();
+
+  userName = val || 'you';
+
+  document.getElementById('helloText').textContent = `hello, ${userName}`;
+
+  goToStep('stepQuestion');
+}
+
+document.getElementById('nameSubmitBtn').addEventListener('click', submitName);
+
+document.getElementById('nameInput').addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') submitName();
+});
+
+document.getElementById('pickSongBtn').addEventListener('click', () => {
+  playlistModal.classList.remove('hidden');
+});
 
 function dodge() {
   const btn = document.getElementById('noBtn');
@@ -238,6 +267,12 @@ songs.forEach((song, index) => {
     playSong(index);
 
     closePlaylist();
+
+    if (!songPicked) {
+      songPicked = true;
+      goToStep('stepName');
+      document.getElementById('nameInput').focus();
+    }
   });
 
   songListEl.appendChild(btn);
