@@ -225,12 +225,16 @@ button {
   transition: transform 0.2s ease;
 }
 
-#yesBtn {
+#yesBtn,
+#pickSongBtn,
+#nameSubmitBtn {
   background: linear-gradient(180deg, #ff8fab, #c9184a);
   color: white;
 }
 
-#yesBtn:hover {
+#yesBtn:hover,
+#pickSongBtn:hover,
+#nameSubmitBtn:hover {
   transform: scale(1.08);
 }
 
@@ -241,16 +245,47 @@ button {
   position: relative;
 }
 
+.name-form {
+  flex-wrap: wrap;
+}
+
+#nameInput {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 13px 18px;
+  border-radius: 50px;
+  border: 2px solid #c9184a;
+  outline: none;
+  width: 170px;
+  text-align: center;
+  color: #7a0e30;
+  background: #fff0f4;
+}
+
+#nameInput::placeholder {
+  color: #c9184a;
+  opacity: 0.6;
+}
+
+#nameInput:focus {
+  border-color: #ff477e;
+  background: #ffffff;
+}
+
+.result-gif {
+  width: 150px;
+  height: auto;
+  margin-bottom: 18px;
+  opacity: 0;
+  animation: fadeIn 0.6s ease forwards;
+}
+
 .result {
-  margin-top: 24px;
+  margin-top: 0;
   font-size: 1.25rem;
   color: #7a0e30;
   opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
-.result.show {
-  opacity: 1;
+  animation: fadeIn 0.8s ease forwards 0.2s;
 }
 
 /* ---- Heart burst effect ---- */
