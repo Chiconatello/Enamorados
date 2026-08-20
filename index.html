@@ -32,13 +32,42 @@
         </div>
       </div>
       <div class="xp-body">
-        <div class="hello">hello</div>
-        <div class="question">will you be my valentine? 💕</div>
-        <div class="buttons">
-          <button id="yesBtn" onclick="sayYes()">Yes!</button>
-          <button id="noBtn">No</button>
+
+        <!-- Step 1: pick a song first -->
+        <div class="step" id="stepSong">
+          <div class="hello">psst...</div>
+          <div class="question">pick a song first 🎵</div>
+          <div class="buttons">
+            <button id="pickSongBtn">Choose a song</button>
+          </div>
         </div>
-        <div class="result" id="result"></div>
+
+        <!-- Step 2: enter your name -->
+        <div class="step hidden" id="stepName">
+          <div class="hello">almost there</div>
+          <div class="question">enter your name</div>
+          <div class="buttons name-form">
+            <input type="text" id="nameInput" placeholder="your name" maxlength="30" autocomplete="off">
+            <button id="nameSubmitBtn">Continue</button>
+          </div>
+        </div>
+
+        <!-- Step 3: the question -->
+        <div class="step hidden" id="stepQuestion">
+          <div class="hello" id="helloText">hello</div>
+          <div class="question">will you be my valentine? 💕</div>
+          <div class="buttons">
+            <button id="yesBtn" onclick="sayYes()">Yes!</button>
+            <button id="noBtn">No</button>
+          </div>
+        </div>
+
+        <!-- Step 4: result -->
+        <div class="step hidden" id="stepResult">
+          <img src="gif.gif" alt="" class="result-gif" id="resultGif">
+          <div class="result show" id="result"></div>
+        </div>
+
       </div>
     </div>
   </div>
